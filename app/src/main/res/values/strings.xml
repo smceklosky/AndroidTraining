@@ -8,4 +8,6 @@
     <string name="title_activity_welcome">WelcomeActivity</string>
     <string name="welcome_text">Welcome</string>
     <string name="home">Home</string>
+    <string name="addData">Add Data</string>
+    <string name="title_activity_people_results">PeopleResultsActivity</string>
 </resources>

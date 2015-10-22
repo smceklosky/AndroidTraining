@@ -21,6 +21,8 @@ public class MainActivity extends AppCompatActivity {
 
     Intent intent;
 
+    DBHandler dbHandler;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -30,6 +32,8 @@ public class MainActivity extends AppCompatActivity {
         emailEditText = (EditText) findViewById(R.id.emailEditText);
         addressEditText = (EditText) findViewById(R.id.addressEditText);
         cityEditText = (EditText) findViewById(R.id.cityEditText);
+
+        dbHandler = new DBHandler(this, null);
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -56,6 +60,29 @@ public class MainActivity extends AppCompatActivity {
             startActivity(intent);
         }
 
+    }
+
+    public void addData (View view){
+
+        String name = nameEditText.getText().toString();
+        String email = emailEditText.getText().toString();
+        String address = addressEditText.getText().toString();
+        String city = cityEditText.getText().toString();
+
+        if (name.trim().equals("") || email.trim().equals("") || address.trim().equals("") ||
+                city.trim().equals(""))
+            Toast.makeText(this, "Please enter a name, email, address, and city!",
+                    Toast.LENGTH_LONG).show();
+        else {
+            dbHandler.addPerson(name, email, address, city);
+            Toast.makeText(this, "Person added!",
+                    Toast.LENGTH_LONG).show();
+        }
+    }
+
+    public void getPeople (View view){
+        intent = new Intent(this, PeopleResultsActivity.class);
+        startActivity(intent);
     }
 
     @Override

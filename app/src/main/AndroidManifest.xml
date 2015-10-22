@@ -23,6 +23,11 @@
             android:label="@string/title_activity_welcome"
             android:theme="@style/AppTheme.NoActionBar" >
         </activity>
+        <activity
+            android:name=".PeopleResultsActivity"
+            android:label="@string/title_activity_people_results"
+            android:theme="@style/AppTheme.NoActionBar" >
+        </activity>
     </application>
 
 </manifest>
